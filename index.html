@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepoRetriever</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #24292e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .search-section {
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover:not(:disabled) {
+            background: #5a6fd8;
+        }
+
+        .search-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .results-section {
+            margin-top: 30px;
+        }
+
+        .conversion-info {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .conversion-info h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .search-terms {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #dee2e6;
+            color: #495057;
+        }
+
+        .repositories {
+            display: grid;
+            gap: 20px;
+        }
+
+        .repo-card {
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 20px;
+            background: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .repo-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #0366d6;
+            text-decoration: none;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .repo-name:hover {
+            text-decoration: underline;
+        }
+
+        .repo-owner {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .repo-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .repo-description {
+            margin: 15px 0;
+            color: #586069;
+            line-height: 1.5;
+        }
+
+        .repo-language {
+            display: inline-block;
+            background: #f1f8ff;
+            color: #0366d6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .examples {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .examples h3 {
+            color: #1565c0;
+            margin-bottom: 15px;
+        }
+
+        .example-item {
+            background: white;
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border: 1px solid #bbdefb;
+        }
+
+        .example-item:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Repo Retriever</h1>
+            <p>Describe what you're looking for and find the perfect repositories</p>
+        </div>
+
+        <div class="main-content">
+            <div class="search-section">
+                <div class="input-group">
+                    <label for="queryInput">What kind of repository are you looking for?</label>
+                    <textarea 
+                        id="queryInput" 
+                        class="search-input" 
+                        placeholder="e.g., I need a Python library for web scraping that's beginner-friendly"
+                        rows="3"
+                    ></textarea>
+                </div>
+                <button class="search-btn" onclick="searchRepositories()" id="searchBtn">
+                    Search Repositories
+                </button>
+            </div>
+
+            <div class="loading" id="loading">
+                <p>🔍 Converting your query and searching repositories...</p>
+            </div>
+
+            <div class="results-section hidden" id="resultsSection">
+                <div class="conversion-info">
+                    <h3>🧠 AI Generated Search Terms:</h3>
+                    <div class="search-terms" id="searchTerms"></div>
+                </div>
+                <div class="repositories" id="repositories"></div>
+            </div>
+
+            <div class="error hidden" id="errorMessage"></div>
+
+            <div class="examples">
+                <h3>💡 Example Queries:</h3>
+                <div class="example-item" onclick="useExample('Python web scraping library for beginners')">
+                    Python web scraping library for beginners
+                </div>
+                <div class="example-item" onclick="useExample('React components for building dashboards')">
+                    React components for building dashboards
+                </div>
+                <div class="example-item" onclick="useExample('Machine learning framework in JavaScript')">
+                    Machine learning framework in JavaScript
+                </div>
+                <div class="example-item" onclick="useExample('Docker configuration for Node.js applications')">
+                    Docker configuration for Node.js applications
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function searchRepositories() {
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) {
+                alert('Please enter a description of what you\'re looking for');
+                return;
+            }
+
+            // Show loading, hide previous results
+            showLoading(true);
+            hideResults();
+            hideError();
+            
+            try {
+                // Call your Python backend
+                const response = await fetch('/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: query })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Server error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                displayResults(data);
+
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Failed to search repositories. Please try again.');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function displayResults(data) {
+            // Display the AI-generated search terms
+            const searchTermsEl = document.getElementById('searchTerms');
+            const searchQuery = buildSearchQuery(data.ai_response);
+            searchTermsEl.textContent = searchQuery;
+
+            // Display repositories
+            const repositoriesEl = document.getElementById('repositories');
+            repositoriesEl.innerHTML = '';
+
+            if (data.repositories && data.repositories.length > 0) {
+                data.repositories.forEach(repo => {
+                    repositoriesEl.appendChild(createRepoCard(repo));
+                });
+                showResults();
+            } else {
+                showError('No repositories found. Try adjusting your search terms.');
+            }
+        }
+
+        function buildSearchQuery(aiResponse) {
+            const parts = [];
+            
+            if (aiResponse.language) {
+                parts.push(`language:${aiResponse.language}`);
+            }
+            
+            if (aiResponse.keywords && aiResponse.keywords.length > 0) {
+                parts.push(...aiResponse.keywords);
+            }
+            
+            if (aiResponse.qualifiers && aiResponse.qualifiers.length > 0) {
+                parts.push(...aiResponse.qualifiers);
+            }
+            
+            return parts.join(' ');
+        }
+
+        function createRepoCard(repo) {
+            const card = document.createElement('div');
+            card.className = 'repo-card';
+            
+            card.innerHTML = `
+                <div class="repo-header">
+                    <div>
+                        <a href="${repo.html_url}" target="_blank" class="repo-name">${repo.name}</a>
+                        <div class="repo-owner">by ${repo.owner.login}</div>
+                    </div>
+                    <div class="repo-stats">
+                        <div class="stat">⭐ ${repo.stargazers_count.toLocaleString()}</div>
+                        <div class="stat">🍴 ${repo.forks_count.toLocaleString()}</div>
+                        ${repo.open_issues_count ? `<div class="stat">❗ ${repo.open_issues_count}</div>` : ''}
+                    </div>
+                </div>
+                ${repo.description ? `<div class="repo-description">${repo.description}</div>` : ''}
+                ${repo.language ? `<span class="repo-language">${repo.language}</span>` : ''}
+            `;
+            
+            return card;
+        }
+
+        function useExample(example) {
+            document.getElementById('queryInput').value = example;
+            searchRepositories();
+        }
+
+        function showLoading(show) {
+            const loading = document.getElementById('loading');
+            const btn = document.getElementById('searchBtn');
+            
+            if (show) {
+                loading.classList.add('show');
+                btn.disabled = true;
+                btn.textContent = 'Searching...';
+            } else {
+                loading.classList.remove('show');
+                btn.disabled = false;
+                btn.textContent = 'Search Repositories';
+            }
+        }
+
+        function showResults() {
+            document.getElementById('resultsSection').classList.remove('hidden');
+        }
+
+        function hideResults() {
+            document.getElementById('resultsSection').classList.add('hidden');
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
+        }
+
+        function hideError() {
+            document.getElementById('errorMessage').classList.add('hidden');
+        }
+
+        // Enter key support for textarea
+        document.getElementById('queryInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                searchRepositories();
+            }
+        });
+    </script>
+</body>
+</html>
