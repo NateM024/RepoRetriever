@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RepoRetriever</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
     <style>
         * {
             margin: 0;
@@ -261,6 +262,10 @@
             flex-direction: column;
         }
 
+        body.light-mode .left-sidebar {
+            background: #ffffff;
+        }
+
         .split-view .left-sidebar {
             width: 40%;
             opacity: 1;
@@ -274,6 +279,11 @@
             opacity: 0;
             transition: all 0.4s ease;
             overflow-y: auto;
+            background: #0d1117;
+        }
+
+        body.light-mode .right-content {
+            background: #ffffff;
         }
 
         .split-view .right-content {
