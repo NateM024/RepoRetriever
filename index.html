@@ -21,155 +21,67 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* Light Mode */
+        /* ===== LIGHT MODE ===== */
         body.light-mode {
             background: #ffffff;
             color: #24292f;
         }
 
-        body.light-mode .header h1 {
-            color: #24292f;
-        }
-
-        body.light-mode .search-input {
-            background: #ffffff;
-            border-color: #d0d7de;
-            color: #24292f;
-        }
-
-        body.light-mode .search-input:focus {
-            border-color: #0969da;
-            box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
-        }
-
-        body.light-mode .search-btn {
-            background: #2da44e;
-        }
-
-        body.light-mode .search-btn:hover:not(:disabled) {
-            background: #2c974b;
-        }
-
-        body.light-mode .search-btn:disabled {
-            background: #eaeef2;
-            color: #8c959f;
-        }
-
+        body.light-mode .header h1 { color: #24292f; }
+        body.light-mode .search-input { background: #ffffff; border-color: #d0d7de; color: #24292f; }
+        body.light-mode .search-input:focus { border-color: #0969da; box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1); }
+        body.light-mode .search-btn { background: #2da44e; }
+        body.light-mode .search-btn:hover:not(:disabled) { background: #2c974b; }
+        body.light-mode .search-btn:disabled { background: #eaeef2; color: #8c959f; }
         body.light-mode .converted-section,
         body.light-mode .history-section,
-        body.light-mode .examples {
-            background: #f6f8fa;
-            border-color: #d0d7de;
-        }
-
-        body.light-mode .converted-query {
-            background: #ffffff;
-            color: #0969da;
-        }
-
+        body.light-mode .examples,
+        body.light-mode .filter-section { background: #f6f8fa; border-color: #d0d7de; }
+        body.light-mode .converted-query { background: #ffffff; color: #0969da; }
         body.light-mode .history-item,
-        body.light-mode .example-item {
-            background: #ffffff;
-            border-color: #d0d7de;
-            color: #24292f;
-        }
-
+        body.light-mode .example-item { background: #ffffff; border-color: #d0d7de; color: #24292f; }
         body.light-mode .history-item:hover,
-        body.light-mode .example-item:hover {
-            border-color: #0969da;
-            background: #f6f8fa;
-        }
-
-        body.light-mode .history-empty {
-            color: #57606a;
-        }
-
-        body.light-mode .repo-card {
-            background: #f6f8fa;
-            border-color: #d0d7de;
-        }
-
-        body.light-mode .repo-card:hover {
-            border-color: #0969da;
-            box-shadow: 0 0 0 1px #0969da;
-        }
-
-        body.light-mode .repo-name {
-            color: #0969da;
-        }
-
+        body.light-mode .example-item:hover { border-color: #0969da; background: #f6f8fa; }
+        body.light-mode .history-empty { color: #57606a; }
+        body.light-mode .repo-card { background: #f6f8fa; border-color: #d0d7de; }
+        body.light-mode .repo-card:hover { border-color: #0969da; box-shadow: 0 0 0 1px #0969da; }
+        body.light-mode .repo-name { color: #0969da; }
         body.light-mode .repo-owner,
-        body.light-mode .repo-meta {
-            color: #57606a;
-        }
-
-        body.light-mode .repo-description {
-            color: #24292f;
-        }
-
-        body.light-mode .left-sidebar {
-            border-color: #d0d7de;
-        }
-
-        body.light-mode .results-header {
-            border-color: #d0d7de;
-        }
-
-        body.light-mode .results-count {
-            color: #57606a;
-        }
-
-        body.light-mode .results-count strong {
-            color: #24292f;
-        }
-
-        body.light-mode .search-title {
-            color: #24292f;
-        }
-
-        body.light-mode .search-subtitle {
-            color: #57606a;
-        }
-
+        body.light-mode .repo-meta { color: #57606a; }
+        body.light-mode .repo-description { color: #24292f; }
+        body.light-mode .left-sidebar { border-color: #d0d7de; background: #ffffff; }
+        body.light-mode .right-content { background: #ffffff; }
+        body.light-mode .results-header { border-color: #d0d7de; }
+        body.light-mode .results-count { color: #57606a; }
+        body.light-mode .results-count strong { color: #24292f; }
+        body.light-mode .search-title { color: #24292f; }
+        body.light-mode .search-subtitle { color: #57606a; }
         body.light-mode .converted-section h3,
         body.light-mode .history-section h3,
-        body.light-mode .examples h3 {
-            color: #24292f;
-        }
+        body.light-mode .examples h3 { color: #24292f; }
+        body.light-mode .loading { color: #57606a; }
+        body.light-mode .toggle-switch { background: #eaeef2; }
+        body.light-mode .toggle-switch:hover { background: #d0d7de; }
+        body.light-mode .toggle-switch.active { background: #0969da; }
+        body.light-mode .toggle-slider { background: #24292f; }
+        body.light-mode ::-webkit-scrollbar-track { background: #ffffff; }
+        body.light-mode ::-webkit-scrollbar-thumb { background: #d0d7de; }
+        body.light-mode ::-webkit-scrollbar-thumb:hover { background: #afb8c1; }
+        body.light-mode .auth-btn { background: #2da44e; }
+        body.light-mode .auth-btn:hover { background: #2c974b; }
+        body.light-mode .user-button { background: #f6f8fa; border-color: #d0d7de; color: #24292f; }
+        body.light-mode .user-dropdown { background: #ffffff; border-color: #d0d7de; }
+        body.light-mode .dropdown-item { color: #24292f; }
+        body.light-mode .dropdown-item:hover { background: #f6f8fa; }
+        body.light-mode .save-btn { background: #f6f8fa; border-color: #d0d7de; color: #24292f; }
+        body.light-mode .save-btn.saved { background: #2da44e; border-color: #2da44e; color: white; }
+        body.light-mode .repo-note { background: #f6f8fa; border-color: #d0d7de; color: #24292f; }
+        body.light-mode .tab-nav { border-bottom-color: #d0d7de; }
+        body.light-mode .tab-item { color: #57606a; }
+        body.light-mode .tab-item:hover { color: #24292f; background: rgba(208, 215, 222, 0.1); }
+        body.light-mode .tab-item.active { color: #24292f; border-bottom-color: #0969da; background: rgba(9, 105, 218, 0.05); }
 
-        body.light-mode .loading {
-            color: #57606a;
-        }
-
-        body.light-mode .toggle-switch {
-            background: #eaeef2;
-        }
-
-        body.light-mode .toggle-switch:hover {
-            background: #d0d7de;
-        }
-
-        body.light-mode .toggle-switch.active {
-            background: #0969da;
-        }
-
-        body.light-mode .toggle-slider {
-            background: #24292f;
-        }
-
-        body.light-mode ::-webkit-scrollbar-track {
-            background: #ffffff;
-        }
-
-        body.light-mode ::-webkit-scrollbar-thumb {
-            background: #d0d7de;
-        }
-
-        body.light-mode ::-webkit-scrollbar-thumb:hover {
-            background: #afb8c1;
-        }
-
-        /* Header */
+        /* ===== HEADER ===== */
         .header {
             background: transparent;
             padding: 24px 32px;
@@ -184,7 +96,13 @@
             color: #f0f6fc;
         }
 
-        /* Theme Toggle */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* ===== THEME TOGGLE ===== */
         .theme-toggle {
             display: flex;
             align-items: center;
@@ -224,14 +142,87 @@
             transform: translateX(24px);
         }
 
-        /* Main Layout */
+        /* ===== AUTH ===== */
+        .auth-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .auth-btn:hover {
+            background: #2ea043;
+        }
+
+        .user-menu {
+            position: relative;
+        }
+
+        .user-button {
+            background: #21262d;
+            border: 1px solid #30363d;
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: #c9d1d9;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .user-button:hover {
+            border-color: #58a6ff;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 8px;
+            min-width: 180px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .user-dropdown.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 8px 12px;
+            color: #c9d1d9;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #21262d;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
         .main-container {
             display: flex;
             min-height: calc(100vh - 72px);
             transition: all 0.4s ease;
         }
 
-        /* Center welcome state */
         .welcome-state {
             width: 100%;
             display: flex;
@@ -245,12 +236,11 @@
             width: 100%;
         }
 
-        /* Split view state */
         .split-view .welcome-state {
             display: none;
         }
 
-        /* Left Sidebar */
+        /* ===== LEFT SIDEBAR ===== */
         .left-sidebar {
             width: 0;
             opacity: 0;
@@ -262,17 +252,47 @@
             flex-direction: column;
         }
 
-        body.light-mode .left-sidebar {
-            background: #ffffff;
-        }
-
         .split-view .left-sidebar {
             width: 40%;
             opacity: 1;
             padding: 24px;
         }
 
-        /* Right Content */
+        /* ===== TAB NAVIGATION ===== */
+        .tab-nav {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .tab-item {
+            flex: 1;
+            padding: 12px 24px;
+            background: transparent;
+            border-bottom: 2px solid transparent;
+            color: #8b949e;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-align: center;
+            user-select: none;
+        }
+
+        .tab-item:hover {
+            color: #c9d1d9;
+            background: rgba(110, 118, 129, 0.05);
+        }
+
+        .tab-item.active {
+            color: #f0f6fc;
+            border-bottom-color: #58a6ff;
+            background: rgba(88, 166, 255, 0.05);
+        }
+
+        /* ===== RIGHT CONTENT ===== */
         .right-content {
             flex: 1;
             padding: 0;
@@ -282,16 +302,12 @@
             background: #0d1117;
         }
 
-        body.light-mode .right-content {
-            background: #ffffff;
-        }
-
         .split-view .right-content {
             opacity: 1;
             padding: 24px;
         }
 
-        /* Search Section */
+        /* ===== SEARCH/FILTER SECTIONS ===== */
         .search-section {
             margin-bottom: 24px;
         }
@@ -355,7 +371,17 @@
             cursor: not-allowed;
         }
 
-        /* Converted Terms */
+        .search-content,
+        .filter-section {
+            display: none;
+        }
+
+        .search-content.show,
+        .filter-section.show {
+            display: block;
+        }
+
+        /* ===== CONVERTED TERMS ===== */
         .converted-section {
             background: #161b22;
             border: 1px solid #30363d;
@@ -381,7 +407,7 @@
             word-break: break-all;
         }
 
-        /* Search History */
+        /* ===== HISTORY ===== */
         .history-section {
             background: #161b22;
             border: 1px solid #30363d;
@@ -423,7 +449,7 @@
             font-style: italic;
         }
 
-        /* Examples */
+        /* ===== EXAMPLES ===== */
         .examples {
             background: #161b22;
             border: 1px solid #30363d;
@@ -460,7 +486,7 @@
             margin-bottom: 0;
         }
 
-        /* Repository Cards */
+        /* ===== REPOSITORY CARDS ===== */
         .repositories {
             display: grid;
             gap: 16px;
@@ -477,6 +503,13 @@
         .repo-card:hover {
             border-color: #58a6ff;
             box-shadow: 0 0 0 1px #58a6ff;
+        }
+
+        .repo-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
         }
 
         .repo-name {
@@ -532,7 +565,39 @@
             background: #58a6ff;
         }
 
-        /* Loading */
+        .save-btn {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .save-btn:hover {
+            border-color: #58a6ff;
+        }
+
+        .save-btn.saved {
+            background: #238636;
+            border-color: #238636;
+            color: white;
+        }
+
+        .repo-note {
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #c9d1d9;
+            font-style: italic;
+        }
+
+        /* ===== LOADING & ERROR ===== */
         .loading {
             text-align: center;
             padding: 40px;
@@ -543,7 +608,6 @@
             display: none;
         }
 
-        /* Error */
         .error {
             background: #f85149;
             color: #ffffff;
@@ -558,7 +622,7 @@
             display: none;
         }
 
-        /* Results Header */
+        /* ===== RESULTS HEADER ===== */
         .results-header {
             margin-bottom: 20px;
             padding-bottom: 16px;
@@ -574,7 +638,7 @@
             color: #f0f6fc;
         }
 
-        /* Mobile Responsiveness */
+        /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             .header {
                 padding: 16px 20px;
@@ -586,16 +650,12 @@
                 border-bottom: 1px solid #30363d;
             }
 
-            body.light-mode .split-view .left-sidebar {
-                border-bottom-color: #d0d7de;
-            }
-
             .split-view .main-container {
                 flex-direction: column;
             }
         }
 
-        /* Scrollbar */
+        /* ===== SCROLLBAR ===== */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -616,16 +676,21 @@
 </head>
 <body>
     <div class="header">
-        <h1>RepoRetriever</h1>
-        <div class="theme-toggle">
-            <div class="toggle-switch" onclick="toggleTheme()" id="themeToggle">
-                <div class="toggle-slider"></div>
+        <h1 style="cursor: pointer;" onclick="goToHome()">RepoRetriever</h1>
+        <div class="header-right">
+            <div class="theme-toggle">
+                <div class="toggle-switch" onclick="toggleTheme()" id="themeToggle">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+            <div id="authSection">
+                <a href="/auth/login" class="auth-btn">Sign in with GitHub</a>
             </div>
         </div>
     </div>
 
     <div class="main-container" id="mainContainer">
-        <!-- Welcome State (centered) -->
+        <!-- Welcome State -->
         <div class="welcome-state">
             <div class="welcome-content">
                 <div class="search-section">
@@ -640,6 +705,10 @@
                     
                     <button class="search-btn" onclick="searchRepositories()" id="searchBtn">
                         Search Repositories
+                    </button>
+                    
+                    <button class="search-btn" onclick="viewSavedFromWelcome()" id="savedBtn" style="display: none;">
+                        View Saved Repositories
                     </button>
                 </div>
 
@@ -661,11 +730,15 @@
             </div>
         </div>
 
-        <!-- Left Sidebar (appears after search) -->
+        <!-- Left Sidebar -->
         <div class="left-sidebar" id="leftSidebar">
-            <div class="search-section">
-                <h2 class="search-title">Search</h2>
-                
+            <div class="tab-nav">
+                <div class="tab-item active" id="searchTab">Search</div>
+                <div class="tab-item" id="savedTab">Saved</div>
+            </div>
+
+            <!-- Search Tab Content -->
+            <div class="search-content show" id="searchContent">
                 <textarea 
                     id="sidebarQueryInput" 
                     class="search-input" 
@@ -675,22 +748,35 @@
                 <button class="search-btn" onclick="searchRepositories()" id="sidebarSearchBtn">
                     Search Again
                 </button>
-            </div>
 
-            <div class="converted-section" id="convertedSection">
-                <h3>🧠 Converted Search Terms</h3>
-                <div class="converted-query" id="convertedQuery"></div>
-            </div>
-
-            <div class="history-section">
-                <h3>📜 Search History</h3>
-                <div id="searchHistory">
-                    <div class="history-empty">No searches yet</div>
+                <div class="converted-section" id="convertedSection">
+                    <h3>🧠 Converted Search Terms</h3>
+                    <div class="converted-query" id="convertedQuery"></div>
                 </div>
+
+                <div class="history-section">
+                    <h3>📜 Search History</h3>
+                    <div id="searchHistory">
+                        <div class="history-empty">No searches yet</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saved Tab Content -->
+            <div class="filter-section" id="filterContent">
+                <textarea 
+                    id="filterInput" 
+                    class="search-input" 
+                    placeholder="Filter saved repos by name, description, note, or language..."
+                ></textarea>
+                
+                <button class="search-btn" onclick="filterSavedRepos()" id="filterBtn">
+                    Filter Repos
+                </button>
             </div>
         </div>
 
-        <!-- Right Content (results) -->
+        <!-- Right Content -->
         <div class="right-content" id="rightContent">
             <div class="error hidden" id="errorMessage"></div>
             
@@ -710,8 +796,262 @@
     <script>
         let searchHistory = [];
         let isDarkMode = true;
+        let currentUser = null;
+        let currentTab = 'search';
+        let allSavedRepos = [];
+        let lastSearchResults = null; // Store last search results
 
-        // Theme toggle
+        // Auth check
+        async function checkAuth() {
+            try {
+                const response = await fetch('/auth/user');
+                const data = await response.json();
+                
+                console.log('Auth check response:', data);
+                
+                if (data.logged_in) {
+                    currentUser = data;
+                    console.log('Current user set to:', currentUser);
+                    updateAuthUI(data.username);
+                    const savedBtn = document.getElementById('savedBtn');
+                    if (savedBtn) savedBtn.style.display = 'block';
+                } else {
+                    console.log('User not logged in');
+                }
+            } catch (error) {
+                console.error('Auth check failed:', error);
+            }
+        }
+
+        function updateAuthUI(username) {
+            const authSection = document.getElementById('authSection');
+            if (!authSection) return;
+            
+            authSection.innerHTML = `
+                <div class="user-menu">
+                    <button class="user-button" onclick="toggleUserMenu()">
+                        ${username} ▾
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a class="dropdown-item" onclick="viewSavedFromMenu()">💾 My Repos</a>
+                        <a href="/auth/logout" class="dropdown-item">🚪 Logout</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleUserMenu() {
+            document.getElementById('userDropdown').classList.toggle('show');
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.user-menu')) {
+                const dropdown = document.getElementById('userDropdown');
+                if (dropdown) dropdown.classList.remove('show');
+            }
+        });
+
+        // View saved repos
+        function viewSavedFromWelcome() {
+            if (!currentUser) {
+                alert('Please sign in to view saved repositories');
+                return;
+            }
+            document.getElementById('mainContainer').classList.add('split-view');
+            switchTab('saved');
+        }
+
+        function viewSavedFromMenu() {
+            document.getElementById('mainContainer').classList.add('split-view');
+            switchTab('saved');
+        }
+
+        // Tab switching
+        function switchTab(tab) {
+            console.log('Switching to tab:', tab);
+            
+            // Check if user is logged in for saved tab
+            if (tab === 'saved' && !currentUser) {
+                alert('Please sign in to view your saved repositories');
+                return;
+            }
+            
+            currentTab = tab;
+            
+            document.getElementById('searchTab').classList.toggle('active', tab === 'search');
+            document.getElementById('savedTab').classList.toggle('active', tab === 'saved');
+            
+            document.getElementById('searchContent').classList.toggle('show', tab === 'search');
+            document.getElementById('filterContent').classList.toggle('show', tab === 'saved');
+            
+            if (tab === 'saved') {
+                console.log('Loading saved repos...');
+                loadSavedRepos();
+            } else {
+                console.log('Switching to search tab, lastSearchResults:', lastSearchResults);
+                // Switching back to search - restore last search results if available
+                if (lastSearchResults) {
+                    console.log('Restoring search results');
+                    displayResults(lastSearchResults.data, lastSearchResults.query);
+                } else {
+                    console.log('No previous search results to restore');
+                    // No search done yet, clear the results
+                    document.getElementById('repositories').innerHTML = '';
+                    document.getElementById('resultsCount').textContent = '';
+                }
+            }
+        }
+
+        async function loadSavedRepos() {
+            if (!currentUser) {
+                console.log('No current user, cannot load saved repos');
+                return;
+            }
+            
+            console.log('Loading saved repos for user:', currentUser.username);
+            showLoading(true);
+            hideError();
+            
+            try {
+                const response = await fetch('/repos/saved');
+                const data = await response.json();
+                
+                console.log('Saved repos response:', data);
+                
+                allSavedRepos = data.repos || [];
+                console.log('All saved repos:', allSavedRepos);
+                displaySavedRepos(allSavedRepos);
+            } catch (error) {
+                console.error('Error loading saved repos:', error);
+                showError('Failed to load saved repositories');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function filterSavedRepos() {
+            const filterText = document.getElementById('filterInput').value.toLowerCase().trim();
+            
+            if (!filterText) {
+                displaySavedRepos(allSavedRepos);
+                return;
+            }
+            
+            const filtered = allSavedRepos.filter(savedRepo => {
+                const repo = savedRepo.repo;
+                const note = savedRepo.note || '';
+                
+                return (
+                    repo.name.toLowerCase().includes(filterText) ||
+                    (repo.description && repo.description.toLowerCase().includes(filterText)) ||
+                    (repo.language && repo.language.toLowerCase().includes(filterText)) ||
+                    note.toLowerCase().includes(filterText)
+                );
+            });
+            
+            displaySavedRepos(filtered);
+        }
+
+        function displaySavedRepos(repos) {
+            const repositoriesEl = document.getElementById('repositories');
+            const resultsCount = document.getElementById('resultsCount');
+            repositoriesEl.innerHTML = '';
+            
+            if (repos && repos.length > 0) {
+                resultsCount.innerHTML = `<strong>${repos.length}</strong> saved ${repos.length === 1 ? 'repository' : 'repositories'}`;
+                repos.forEach(savedRepo => {
+                    repositoriesEl.appendChild(createSavedRepoCard(savedRepo));
+                });
+            } else {
+                resultsCount.textContent = 'No saved repositories yet';
+                repositoriesEl.innerHTML = '<div style="text-align: center; color: #8b949e; padding: 40px;">Start saving repositories to see them here!</div>';
+            }
+        }
+
+        function createSavedRepoCard(savedRepo) {
+            const repo = savedRepo.repo;
+            const card = document.createElement('div');
+            card.className = 'repo-card';
+            
+            card.innerHTML = `
+                <div class="repo-card-header">
+                    <div>
+                        <a href="${repo.html_url}" target="_blank" class="repo-name">${repo.name}</a>
+                        <div class="repo-owner">by ${repo.owner.login}</div>
+                    </div>
+                    <button class="save-btn saved" onclick="unsaveRepo(${savedRepo.id})">Unsave</button>
+                </div>
+                ${repo.description ? `<div class="repo-description">${repo.description}</div>` : ''}
+                <div class="repo-meta">
+                    ${repo.language ? `
+                        <div class="meta-item">
+                            <span class="repo-language">
+                                <span class="language-dot"></span>
+                                ${repo.language}
+                            </span>
+                        </div>
+                    ` : ''}
+                    <div class="meta-item">⭐ ${repo.stargazers_count.toLocaleString()}</div>
+                    <div class="meta-item">🍴 ${repo.forks_count.toLocaleString()}</div>
+                    ${repo.open_issues_count ? `<div class="meta-item">❗ ${repo.open_issues_count}</div>` : ''}
+                </div>
+                ${savedRepo.note ? `<div class="repo-note">📝 ${savedRepo.note}</div>` : ''}
+            `;
+            
+            return card;
+        }
+
+        async function saveRepo(repo, buttonElement) {
+            if (!currentUser) {
+                alert('Please sign in to save repositories');
+                return;
+            }
+            
+            const note = prompt('Add a note (optional):');
+            if (note === null) return;
+            
+            try {
+                const response = await fetch('/repos/save', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ repo: repo, note: note })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Repository saved!');
+                    if (buttonElement) {
+                        buttonElement.textContent = 'Saved ✓';
+                        buttonElement.classList.add('saved');
+                        buttonElement.onclick = null;
+                    }
+                }
+            } catch (error) {
+                console.error('Save error:', error);
+                alert('Failed to save repository');
+            }
+        }
+
+        async function unsaveRepo(savedId) {
+            if (!confirm('Remove this repository from your saved list?')) return;
+            
+            try {
+                const response = await fetch(`/repos/unsave/${savedId}`, {
+                    method: 'DELETE'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    loadSavedRepos();
+                }
+            } catch (error) {
+                console.error('Unsave error:', error);
+                alert('Failed to remove repository');
+            }
+        }
+
         function toggleTheme() {
             isDarkMode = !isDarkMode;
             document.body.classList.toggle('light-mode');
@@ -719,17 +1059,8 @@
             const toggle = document.getElementById('themeToggle');
             toggle.classList.toggle('active');
             
-            // Save preference
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
         }
-
-        // Load theme preference
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') {
-                toggleTheme();
-            }
-        });
 
         async function searchRepositories() {
             const welcomeInput = document.getElementById('queryInput');
@@ -741,14 +1072,17 @@
                 return;
             }
 
-            // Switch to split view
+            currentTab = 'search';
             document.getElementById('mainContainer').classList.add('split-view');
             
-            // Sync inputs
+            document.getElementById('searchTab').classList.add('active');
+            document.getElementById('savedTab').classList.remove('active');
+            document.getElementById('searchContent').classList.add('show');
+            document.getElementById('filterContent').classList.remove('show');
+            
             welcomeInput.value = query;
             sidebarInput.value = query;
 
-            // Show loading, hide previous results
             showLoading(true);
             hideError();
             document.getElementById('repositories').innerHTML = '';
@@ -756,9 +1090,7 @@
             try {
                 const response = await fetch('/search', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ query: query })
                 });
 
@@ -767,6 +1099,7 @@
                 }
 
                 const data = await response.json();
+                lastSearchResults = { data: data, query: query }; // Store results
                 displayResults(data, query);
                 addToHistory(query);
 
@@ -779,11 +1112,9 @@
         }
 
         function displayResults(data, query) {
-            // Display the converted search terms
             const searchQuery = buildSearchQuery(data.ai_response);
             document.getElementById('convertedQuery').textContent = searchQuery;
 
-            // Display repositories
             const repositoriesEl = document.getElementById('repositories');
             const resultsCount = document.getElementById('resultsCount');
             repositoriesEl.innerHTML = '';
@@ -821,9 +1152,18 @@
             const card = document.createElement('div');
             card.className = 'repo-card';
             
+            console.log('Creating repo card, currentUser:', currentUser);
+            const saveButtonHtml = currentUser ? `<button class="save-btn">Save</button>` : '';
+            console.log('Save button HTML:', saveButtonHtml);
+            
             card.innerHTML = `
-                <a href="${repo.html_url}" target="_blank" class="repo-name">${repo.name}</a>
-                <div class="repo-owner">by ${repo.owner.login}</div>
+                <div class="repo-card-header">
+                    <div>
+                        <a href="${repo.html_url}" target="_blank" class="repo-name">${repo.name}</a>
+                        <div class="repo-owner">by ${repo.owner.login}</div>
+                    </div>
+                    ${saveButtonHtml}
+                </div>
                 ${repo.description ? `<div class="repo-description">${repo.description}</div>` : ''}
                 <div class="repo-meta">
                     ${repo.language ? `
@@ -839,6 +1179,16 @@
                     ${repo.open_issues_count ? `<div class="meta-item">❗ ${repo.open_issues_count}</div>` : ''}
                 </div>
             `;
+            
+            if (currentUser) {
+                const saveBtn = card.querySelector('.save-btn');
+                console.log('Found save button:', saveBtn);
+                if (saveBtn) {
+                    saveBtn.addEventListener('click', function() {
+                        saveRepo(repo, this);
+                    });
+                }
+            }
             
             return card;
         }
@@ -883,14 +1233,18 @@
             if (show) {
                 loading.classList.remove('hidden');
                 btns.forEach(btn => {
-                    btn.disabled = true;
-                    btn.textContent = 'Searching...';
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.textContent = 'Searching...';
+                    }
                 });
             } else {
                 loading.classList.add('hidden');
                 btns.forEach(btn => {
-                    btn.disabled = false;
-                    btn.textContent = btn.id === 'searchBtn' ? 'Search Repositories' : 'Search Again';
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.textContent = btn.id === 'searchBtn' ? 'Search Repositories' : 'Search Again';
+                    }
                 });
             }
         }
@@ -905,7 +1259,6 @@
             document.getElementById('errorMessage').classList.add('hidden');
         }
 
-        // Enter key support
         document.getElementById('queryInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -919,6 +1272,57 @@
                 searchRepositories();
             }
         });
+
+        document.getElementById('filterInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                filterSavedRepos();
+            }
+        });
+
+        // Initialize
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'light') {
+                    toggleTheme();
+                }
+                checkAuth();
+                initTabListeners();
+            });
+        } else {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                toggleTheme();
+            }
+            checkAuth();
+            initTabListeners();
+        }
+
+        function initTabListeners() {
+            document.getElementById('searchTab').addEventListener('click', function() {
+                switchTab('search');
+            });
+            document.getElementById('savedTab').addEventListener('click', function() {
+                switchTab('saved');
+            });
+        }
+
+        function goToHome() {
+            // Reset to welcome state
+            document.getElementById('mainContainer').classList.remove('split-view');
+            document.getElementById('queryInput').value = '';
+            document.getElementById('repositories').innerHTML = '';
+            document.getElementById('resultsCount').textContent = '';
+            lastSearchResults = null;
+            currentTab = 'search';
+            
+            // Reset tabs to search
+            document.getElementById('searchTab').classList.add('active');
+            document.getElementById('savedTab').classList.remove('active');
+            document.getElementById('searchContent').classList.add('show');
+            document.getElementById('filterContent').classList.remove('show');
+        }
     </script>
 </body>
 </html>
