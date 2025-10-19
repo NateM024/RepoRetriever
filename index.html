@@ -220,6 +220,7 @@
         .main-container {
             display: flex;
             min-height: calc(100vh - 72px);
+            max-height: calc(100vh - 72px);
             transition: all 0.4s ease;
         }
 
@@ -250,6 +251,8 @@
             transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
+            max-height: calc(100vh - 72px);
+            overflow-y: auto;
         }
 
         .split-view .left-sidebar {
@@ -300,6 +303,7 @@
             transition: all 0.4s ease;
             overflow-y: auto;
             background: #0d1117;
+            max-height: calc(100vh - 72px);
         }
 
         .split-view .right-content {
@@ -707,9 +711,15 @@
                         Search Repositories
                     </button>
                     
-                    <button class="search-btn" onclick="viewSavedFromWelcome()" id="savedBtn" style="display: none;">
-                        View Saved Repositories
-                    </button>
+                    <div style="display: flex; gap: 12px; margin-top: 12px;">
+                        <button class="search-btn" onclick="viewSavedFromWelcome()" id="savedBtn" style="display: none; flex: 1;">
+                            View Saved Repositories
+                        </button>
+                        
+                        <button class="search-btn" onclick="getRandomRepo()" id="randomBtn" style="flex: 1;">
+                            🎲 Surprise Me!
+                        </button>
+                    </div>
                 </div>
 
                 <div class="examples">
@@ -747,6 +757,10 @@
                 
                 <button class="search-btn" onclick="searchRepositories()" id="sidebarSearchBtn">
                     Search Again
+                </button>
+                
+                <button class="search-btn" onclick="getRandomRepo()" id="sidebarRandomBtn" style="display: none; margin-top: 12px;">
+                    🎲 Another Random Repo
                 </button>
 
                 <div class="converted-section" id="convertedSection">
@@ -1080,6 +1094,9 @@
             document.getElementById('searchContent').classList.add('show');
             document.getElementById('filterContent').classList.remove('show');
             
+            // Hide random repo button when doing regular search
+            document.getElementById('sidebarRandomBtn').style.display = 'none';
+            
             welcomeInput.value = query;
             sidebarInput.value = query;
 
@@ -1322,6 +1339,78 @@
             document.getElementById('savedTab').classList.remove('active');
             document.getElementById('searchContent').classList.add('show');
             document.getElementById('filterContent').classList.remove('show');
+        }
+
+        async function getRandomRepo() {
+            showLoading(true);
+            hideError();
+            
+            // Switch to split view
+            document.getElementById('mainContainer').classList.add('split-view');
+            document.getElementById('searchTab').classList.add('active');
+            document.getElementById('savedTab').classList.remove('active');
+            document.getElementById('searchContent').classList.add('show');
+            document.getElementById('filterContent').classList.remove('show');
+            
+            // Show the "Another Random Repo" button in sidebar
+            document.getElementById('sidebarRandomBtn').style.display = 'block';
+            
+            try {
+                // Generate random search to get diverse results
+                const randomSearches = [
+                    'stars:>10000',
+                    'stars:>5000 language:javascript',
+                    'stars:>5000 language:python', 
+                    'stars:>5000 language:java',
+                    'stars:>5000 language:go',
+                    'stars:>1000 language:rust',
+                    'stars:>1000 language:typescript',
+                    'awesome',
+                    'framework',
+                    'library'
+                ];
+                
+                const randomQuery = randomSearches[Math.floor(Math.random() * randomSearches.length)];
+                
+                const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(randomQuery)}&sort=stars&order=desc&per_page=100`);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch random repository');
+                }
+                
+                const data = await response.json();
+                
+                if (data.items && data.items.length > 0) {
+                    // Pick a random repo from the results
+                    const randomRepo = data.items[Math.floor(Math.random() * data.items.length)];
+                    
+                    // Display just this one random repo
+                    const repositoriesEl = document.getElementById('repositories');
+                    const resultsCount = document.getElementById('resultsCount');
+                    
+                    repositoriesEl.innerHTML = '';
+                    resultsCount.innerHTML = `🎲 <strong>Random Repository</strong>`;
+                    
+                    repositoriesEl.appendChild(createRepoCard(randomRepo));
+                    
+                    // Update sidebar to show it was a random pick
+                    document.getElementById('convertedQuery').textContent = '🎲 Random selection from popular repositories';
+                    
+                    // Clear search input
+                    document.getElementById('queryInput').value = '';
+                    document.getElementById('sidebarQueryInput').value = '';
+                    
+                    lastSearchResults = null; // Don't save random results
+                } else {
+                    showError('Could not find a random repository. Try again!');
+                }
+                
+            } catch (error) {
+                console.error('Random repo error:', error);
+                showError('Failed to get random repository. Please try again.');
+            } finally {
+                showLoading(false);
+            }
         }
     </script>
 </body>
