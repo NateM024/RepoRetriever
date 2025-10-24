@@ -131,13 +131,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - GitHub API for providing repository data
-- Claude (Anthropic) for pair programming and development assistance
 - Flask community for the excellent web framework
+- Claude (Anthropic) for pair programming and development assistance
 - All the amazing open source projects that make development possible
 
 ## 🐛 Issues & Feature Requests
 
-Found a bug or have a feature idea? Please [open an issue](https://github.com/NateM024/RepoRetriever/issues)!
+Found a bug or have a feature idea? Please [open an issue](https://github.com/yourusername/RepoRetriever/issues)!
 
 ---
 
